@@ -23,6 +23,28 @@
       <version>5.10.0</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- MongoDB Java Driver -->
+    <dependency>
+      <groupId>org.mongodb</groupId>
+      <artifactId>mongo-java-driver</artifactId>
+      <version>3.12.14</version>
+    </dependency>
+
+    <!-- Testcontainers for MongoDB -->
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>mongodb</artifactId>
+      <version>1.19.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>1.19.1</version>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
