@@ -11,4 +11,17 @@ public class CarTest {
         assertEquals("AB123CD", car.getPlate());
     }
 
+    @Test
+    public void testCarIsAvailableByDefault() {
+        Car car = new Car("AB123CD", "Fiat", "Punto");
+        assertEquals(true, car.isAvailable());
+    }
+
+    @Test
+    public void testCarCanBeSetUnavailable() {
+        Car car = new Car("AB123CD", "Fiat", "Punto");
+        car.setAvailable(false);
+        assertEquals(false, car.isAvailable());
+    }
+
 }
