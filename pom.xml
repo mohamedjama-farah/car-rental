@@ -22,13 +22,13 @@
     <pitest.version>1.14.1</pitest.version>
     <pitest.junit5.version>1.2.0</pitest.junit5.version>
     <surefire.version>3.1.2</surefire.version>
-    <!-- NEW in V8 -->
     <mockito.version>5.4.0</mockito.version>
+    <!-- NEW in V12 -->
+    <failsafe.version>3.1.2</failsafe.version>
   </properties>
 
   <dependencies>
 
-    <!-- JUnit 5 -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
@@ -42,7 +42,6 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- AssertJ -->
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
@@ -50,12 +49,6 @@
       <scope>test</scope>
     </dependency>
 
-    <!--
-      ══ NEW in V8 ══════════════════════════════════════════════════
-      Mockito — mocking framework for tests.
-      mockito-junit-jupiter integrates Mockito with JUnit 5.
-      scope=test — only used in tests, never in production.
-    -->
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
@@ -63,7 +56,6 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- Log4j -->
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
@@ -79,11 +71,34 @@
 
   <build>
     <plugins>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${surefire.version}</version>
       </plugin>
+
+      <!--
+        NEW in V12: Failsafe plugin
+        Runs *IT.java files (Integration Tests)
+        Command: mvn verify
+        *Test.java  → Surefire (mvn test)
+        *IT.java    → Failsafe (mvn verify)
+      -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>${failsafe.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -99,6 +114,7 @@
           </execution>
         </executions>
       </plugin>
+
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
@@ -119,6 +135,7 @@
           </targetTests>
         </configuration>
       </plugin>
+
     </plugins>
   </build>
 
