@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  LOCATION: src/main/resources/log4j2.xml
+
+  This file tells Log4j HOW to display log messages.
+  Log4j looks for this file automatically on the classpath.
+
+  The pattern:
+    %d{HH:mm:ss}  = time e.g. 14:32:01
+    %-5level      = log level e.g. INFO , WARN , ERROR
+    [%logger{1}]  = short class name e.g. [CarRentalManager]
+    %msg%n        = the actual message + newline
+
+  Example output:
+    14:32:01 INFO  [CarRentalManager] Adding new car: Toyota Corolla
+    14:32:01 INFO  [Car] Created car: id=1 Toyota Corolla
+-->
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss} %-5level [%logger{1}] %msg%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
