@@ -41,8 +41,11 @@ jobs:
             sleep 2
           done
 
+      - name: Install Xvfb for UI tests
+        run: sudo apt-get install -y xvfb
+
       - name: Build and test with Maven
-        run: mvn verify
+        run: xvfb-run mvn verify
         env:
           MONGO_HOST: localhost
           MONGO_PORT: 27017
