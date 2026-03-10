@@ -24,15 +24,16 @@
     <surefire.version>3.1.2</surefire.version>
     <mockito.version>5.4.0</mockito.version>
     <failsafe.version>3.1.2</failsafe.version>
+    <!-- NEW in V14 -->
+    <mongodb.version>4.10.0</mongodb.version>
 
-    <!-- NEW in V13: SonarCloud properties -->
+    <!-- SonarCloud properties -->
     <sonar.organization>mohamedjama-farah</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <sonar.projectKey>mohamedjama-farah_car-rental</sonar.projectKey>
     <sonar.coverage.jacoco.xmlReportPaths>
       target/site/jacoco/jacoco.xml
     </sonar.coverage.jacoco.xmlReportPaths>
-    <!-- exclude UI classes from Sonar analysis -->
     <sonar.exclusions>**/CarSwingApp.java</sonar.exclusions>
   </properties>
 
@@ -74,6 +75,13 @@
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
       <version>${log4j.version}</version>
+    </dependency>
+
+    <!-- NEW in V14: MongoDB driver -->
+    <dependency>
+      <groupId>org.mongodb</groupId>
+      <artifactId>mongodb-driver-sync</artifactId>
+      <version>${mongodb.version}</version>
     </dependency>
 
   </dependencies>
