@@ -1,0 +1,41 @@
+# LOCATION: .github/workflows/maven.yml
+#
+# This file tells GitHub Actions what to do every time
+# you push code or open a pull request.
+#
+# The workflow:
+#   1. GitHub starts a fresh Ubuntu machine
+#   2. Downloads your code
+#   3. Installs Java 17
+#   4. Runs mvn test
+#   5. Shows green or red result
+
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Step 1: download your code onto the GitHub machine
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: install Java 17
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      # Step 3: run all tests
+      - name: Build and test with Maven
+        run: mvn test
