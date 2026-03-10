@@ -26,8 +26,9 @@
     <failsafe.version>3.1.2</failsafe.version>
     <mongodb.version>4.10.0</mongodb.version>
     <assertj.swing.version>3.17.1</assertj.swing.version>
-    <!-- NEW in V17 -->
     <cucumber.version>7.13.0</cucumber.version>
+    <!-- NEW in V18 -->
+    <guice.version>7.0.0</guice.version>
 
     <!-- SonarCloud properties -->
     <sonar.organization>mohamedjama-farah</sonar.organization>
@@ -36,7 +37,7 @@
     <sonar.coverage.jacoco.xmlReportPaths>
       target/site/jacoco/jacoco.xml
     </sonar.coverage.jacoco.xmlReportPaths>
-    <sonar.exclusions>**/CarSwingApp.java</sonar.exclusions>
+    <sonar.exclusions>**/CarSwingApp.java,**/CarRentalApp.java</sonar.exclusions>
   </properties>
 
   <dependencies>
@@ -92,7 +93,6 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- NEW in V17: Cucumber -->
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
@@ -110,6 +110,13 @@
       <artifactId>junit-platform-suite</artifactId>
       <version>1.10.0</version>
       <scope>test</scope>
+    </dependency>
+
+    <!-- NEW in V18: Google Guice -->
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>${guice.version}</version>
     </dependency>
 
   </dependencies>
