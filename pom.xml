@@ -27,7 +27,6 @@
     <mongodb.version>4.10.0</mongodb.version>
     <assertj.swing.version>3.17.1</assertj.swing.version>
     <cucumber.version>7.13.0</cucumber.version>
-    <!-- NEW in V18 -->
     <guice.version>7.0.0</guice.version>
 
     <!-- SonarCloud properties -->
@@ -38,6 +37,7 @@
       target/site/jacoco/jacoco.xml
     </sonar.coverage.jacoco.xmlReportPaths>
     <sonar.exclusions>**/CarSwingApp.java,**/CarRentalApp.java</sonar.exclusions>
+    <sonar.qualitygate.wait>false</sonar.qualitygate.wait>
   </properties>
 
   <dependencies>
@@ -112,7 +112,6 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- NEW in V18: Google Guice -->
     <dependency>
       <groupId>com.google.inject</groupId>
       <artifactId>guice</artifactId>
