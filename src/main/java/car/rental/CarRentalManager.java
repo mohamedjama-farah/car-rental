@@ -12,7 +12,8 @@ import java.util.NoSuchElementException;
  */
 public class CarRentalManager {
 
-    private static final Logger logger = LogManager.getLogger(CarRentalManager.class);
+    private static final Logger logger =
+            LogManager.getLogger(CarRentalManager.class);
 
     private final CarRepository repository;
 
@@ -22,9 +23,9 @@ public class CarRentalManager {
     }
 
     public Car addNewCar(String make, String model) {
+        logger.info("Adding new car: {} {}", make, model);
         Car car = new Car(make, model);
         repository.save(car);
-        logger.info("Adding new car: {} {}", make, model);
         return car;
     }
 
