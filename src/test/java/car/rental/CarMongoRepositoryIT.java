@@ -11,22 +11,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * LOCATION: src/test/java/car/rental/CarMongoRepositoryIT.java
- *
- * Integration tests for CarMongoRepository.
- * Requires a real MongoDB running (via Docker Compose).
- *
- * Run with: mvn verify
- * (make sure MongoDB is running first: docker-compose up -d)
- *
- * On CI: MongoDB is started automatically via docker-compose
- * in the GitHub Actions workflow.
- *
- * Uses environment variables:
- *   MONGO_HOST (default: localhost)
- *   MONGO_PORT (default: 27017)
- */
+
 class CarMongoRepositoryIT {
 
     private static MongoClient mongoClient;

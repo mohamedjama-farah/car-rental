@@ -5,15 +5,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-/**
- * LOCATION: src/main/java/car/rental/CarSwingApp.java
- *
- * Desktop UI for the Car Rental application.
- * Uses Java Swing.
- *
- * IMPORTANT: every widget has a setName() call.
- * This allows AssertJ Swing to find widgets by name in tests.
- */
+
 public class CarSwingApp extends JFrame {
 
     private static final long serialVersionUID = 1L;

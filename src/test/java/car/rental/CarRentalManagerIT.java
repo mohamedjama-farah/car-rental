@@ -9,17 +9,7 @@ import java.util.NoSuchElementException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-/**
- * LOCATION: src/test/java/car/rental/CarRentalManagerIT.java
- *
- * IT = Integration Test
- * Uses a REAL InMemoryCarRepository — no mocks.
- * Run with: mvn verify
- *
- * Difference from CarRentalManagerTest:
- *   CarRentalManagerTest  → uses @Mock repository (unit test)
- *   CarRentalManagerIT    → uses real InMemoryCarRepository (integration test)
- */
+
 class CarRentalManagerIT {
 
     private CarRentalManager manager;

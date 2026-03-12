@@ -16,31 +16,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-/**
- * LOCATION: src/test/java/car/rental/CarRentalManagerTest.java
- *
- * V8 changes from V7:
- *
- * NEW ANNOTATIONS:
- *   @ExtendWith(MockitoExtension.class)
- *     Tells JUnit 5 to activate Mockito for this test class.
- *
- *   @Mock CarRepository repository
- *     Creates a FAKE repository. We control exactly what it returns.
- *     We do NOT use a real database or ArrayList here.
- *
- *   @InjectMocks CarRentalManager manager
- *     Creates a REAL CarRentalManager and injects the @Mock into it.
- *     RULE: NEVER put @InjectMocks on the thing you are mocking.
- *           NEVER put @Mock on the class you are testing.
- *
- * NEW METHODS:
- *   when(repository.findById(1)).thenReturn(car)
- *     → "when findById(1) is called, return this car"
- *
- *   verify(repository).save(car)
- *     → "check that save(car) was actually called"
- */
+
 @ExtendWith(MockitoExtension.class)
 class CarRentalManagerTest {
 

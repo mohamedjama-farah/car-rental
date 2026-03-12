@@ -7,9 +7,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-/**
- * LOCATION: src/main/java/car/rental/CarRentalManager.java
- */
+
 public class CarRentalManager {
 
     private static final Logger logger =

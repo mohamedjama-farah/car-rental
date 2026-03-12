@@ -8,14 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * LOCATION: src/test/java/car/rental/CarSwingAppIT.java
- *
- * End-to-end UI tests for CarSwingApp.
- * Uses AssertJ Swing to simulate user interactions.
- *
- * Run with: mvn verify
- */
+
 class CarSwingAppIT {
 
     private FrameFixture window;

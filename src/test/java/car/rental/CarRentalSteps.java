@@ -7,12 +7,7 @@ import io.cucumber.java.en.When;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * LOCATION: src/test/java/car/rental/CarRentalSteps.java
- *
- * Step definitions for car-rental.feature
- * Each method matches one line in the feature file.
- */
+
 public class CarRentalSteps {
 
     private CarRentalManager manager;
