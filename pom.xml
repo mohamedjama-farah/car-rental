@@ -28,6 +28,8 @@
     <assertj.swing.version>3.17.1</assertj.swing.version>
     <cucumber.version>7.13.0</cucumber.version>
     <guice.version>7.0.0</guice.version>
+    <!-- NEW in this version: fabric8 docker plugin -->
+    <docker.plugin.version>0.43.4</docker.plugin.version>
 
     <!-- SonarCloud properties -->
     <sonar.organization>mohamedjama-farah</sonar.organization>
@@ -178,6 +180,59 @@
             <param>car.rental.*</param>
           </targetTests>
         </configuration>
+      </plugin>
+
+      <!--
+        fabric8 docker-maven-plugin:
+        - Starts MongoDB container AUTOMATICALLY before integration tests
+        - Stops MongoDB container AUTOMATICALLY after integration tests
+        - Works locally (mvn verify) AND in CI (no docker-compose needed)
+        - No more manual: docker-compose up -d
+      -->
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>${docker.plugin.version}</version>
+        <configuration>
+          <images>
+            <image>
+              <!-- Use official MongoDB 6.0 image -->
+              <name>mongo:6.0</name>
+              <run>
+                <!-- Name the container so it is easy to identify -->
+                <containerNamePattern>%n</containerNamePattern>
+                <ports>
+                  <!-- Map port 27017 on host to 27017 in container -->
+                  <port>27017:27017</port>
+                </ports>
+                <wait>
+                  <!-- Wait until MongoDB is ready to accept connections -->
+                  <log>Waiting for connections</log>
+                  <!-- Wait maximum 30 seconds -->
+                  <time>30000</time>
+                </wait>
+              </run>
+            </image>
+          </images>
+        </configuration>
+        <executions>
+          <!-- Start MongoDB before integration tests run -->
+          <execution>
+            <id>docker-start</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>start</goal>
+            </goals>
+          </execution>
+          <!-- Stop MongoDB after integration tests finish -->
+          <execution>
+            <id>docker-stop</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>stop</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
 
     </plugins>
