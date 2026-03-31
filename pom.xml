@@ -220,7 +220,7 @@
         <configuration>
           <images>
             <image>
-              <n>mongo:6.0</n>
+              <name>mongo:6.0</name>
               <run>
                 <containerNamePattern>%n</containerNamePattern>
                 <ports>
